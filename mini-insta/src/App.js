@@ -6,6 +6,7 @@ import { db, auth } from "./firebase"
 import { Box, Input } from "@material-ui/core";
 import { Modal } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import ImageUpload from "./ImageUpload";
 
 // Modal Styling
 const style = {
@@ -85,11 +86,16 @@ function App() {
   return (
     <div className="App">
 
+      {user?.displayName ? (<ImageUpload username={user.displayName} />) : (
+        <h3>Sorry you need to login</h3>
+      )}
+
 
 
       {/* Modal  start*/}
-      <Modal open={open}
-        onClose={() => setOpen(false)}
+      < Modal open={open}
+        onClose={() => setOpen(false)
+        }
       >
 
         <Box sx={style}>
@@ -124,10 +130,10 @@ function App() {
           </form>
 
         </Box>
-      </Modal>
+      </Modal >
       {/* Modal End */}
 
-      <Modal open={openSignIn}
+      < Modal open={openSignIn}
         onClose={() => setOpenSignIn(false)}
       >
 
@@ -157,7 +163,7 @@ function App() {
           </form>
 
         </Box>
-      </Modal>
+      </Modal >
 
 
       <div className="App__header">
@@ -188,7 +194,7 @@ function App() {
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
         ))
       }
-    </div>
+    </div >
   );
 }
 
