@@ -86,10 +86,11 @@ function App() {
   return (
     <div className="App">
 
-      {user ? (<ImageUpload />) : (
-        <h3>Sorry you need to login</h3>
-      )}
-
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <h3>Login to upload</h3>)
+      }
 
 
       {/* Modal  start*/}
